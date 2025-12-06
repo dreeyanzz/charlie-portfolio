@@ -624,10 +624,16 @@ const About = () => {
                 Social
               </h4>
               <div className="flex gap-4 text-sm text-neutral-500">
-                <a href="#" className="hover:text-black hover:underline">
+                <a
+                  href="https://web.facebook.com/lie.0l"
+                  className="hover:text-black hover:underline"
+                >
                   Facebook
                 </a>
-                <a href="#" className="hover:text-black hover:underline">
+                <a
+                  href="https://www.instagram.com/_chaboie/"
+                  className="hover:text-black hover:underline"
+                >
                   Instagram
                 </a>
                 <a href="#" className="hover:text-black hover:underline">
@@ -666,13 +672,19 @@ const Contact = () => {
             Socials
           </h4>
           <div className="flex flex-col gap-4">
-            <a href="#" className="hover:text-neutral-400 transition-colors">
+            <a
+              href="https://web.facebook.com/lie.0l"
+              className="hover:text-neutral-400 transition-colors"
+            >
               Facebook
             </a>
             <a href="#" className="hover:text-neutral-400 transition-colors">
               LinkedIn
             </a>
-            <a href="#" className="hover:text-neutral-400 transition-colors">
+            <a
+              href="https://www.instagram.com/_chaboie/"
+              className="hover:text-neutral-400 transition-colors"
+            >
               Instagram
             </a>
           </div>
