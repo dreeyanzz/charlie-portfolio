@@ -14,6 +14,7 @@ import {
   Grid,
 } from "lucide-react";
 import * as framerMotion from "framer-motion";
+import Profile from "./assets/charlie-image.jpg";
 
 // --- DATA ---
 const projects = [
@@ -561,7 +562,7 @@ const About = () => {
           </h2>
           <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden relative">
             <img
-              src="src\assets\charlie-image.jpg"
+              src={Profile}
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               alt="Portrait"
             />
