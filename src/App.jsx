@@ -14,98 +14,133 @@ import {
   Grid,
 } from "lucide-react";
 import * as framerMotion from "framer-motion";
-import Profile from "./assets/charlie-image.jpg";
+const Images = import.meta.glob("./assets/*.{png,jpg,jpeg,svg}", {
+  eager: true,
+  as: "url",
+});
+
+const Profile = Images["./assets/charlie-image.jpg"];
 
 // --- DATA ---
 const projects = [
   {
     id: 1,
-    title: "Vertex House",
-    category: "Residential",
-    location: "Oslo, Norway",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600",
-    year: "2023",
-    area: "450 sqm",
+    title: "Tagbo",
+    category: "Digital",
+    image: Images["./assets/Tagbo.jpeg"],
+    thumbnail: Images["./assets/Tagbo-thumbnail.jpg"],
+    year: "2025",
     status: "Completed",
-    description:
-      "A dialogue between sharp angles and soft nordic light, designed to capture the shifting seasons. The structure uses locally sourced timber and concrete to create a thermal mass that regulates the internal temperature naturally.",
     details:
-      "The Vertex House challenges traditional cabin typology. By rotating the living volume 45 degrees, we maximized solar gain while minimizing wind exposure. The interior palette is stripped back to raw oak and exposed aggregate.",
+      "“Tagbo” is a food village whose architectural concept is inspired by the form and dynamics of a paper plane. The design emphasizes lightness, direction, and openness, expressed through angular rooflines, overlapping planes, and airy structural frameworks that guide movement throughout the space. Wide spans and open layouts encourage natural ventilation, while strategic orientation maximizes daylight and creates a welcoming environment for communal dining. The folded, layered forms of the structure reflect the folds of a paper plane, symbolizing both simplicity and ingenuity in design. By combining functional circulation, climate-responsive strategies, and a playful yet purposeful form, “Tagbo” becomes not only a hub for food and community but also a contemporary architectural statement rooted in clarity, flow, and connection.",
   },
   {
     id: 2,
-    title: "Aura Museum",
-    category: "Cultural",
-    location: "Berlin, Germany",
-    image:
-      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&q=80&w=1600",
-    year: "2022",
-    area: "12,000 sqm",
+    title: "The Archdiocesan Museum of Cebu",
+    category: "Photography",
+    image: Images["./assets/the-archdiocesan-museum-of-cebu.jpeg"],
+    thumbnail: Images["./assets/the-archdiocesan-museum-of-cebu-thumbnail.jpg"],
+    year: "2025",
     status: "Completed",
-    description:
-      "A space of silence and contemplation, featuring brutalist concrete forms softened by natural illumination.",
     details:
-      "Designed to house a private collection of modern sculpture, the museum functions as a light trap. Roof apertures direct beams of sunlight that move across the concrete floor throughout the day, acting as a natural sundial.",
+      "This photography captures the character and historic charm of the Archdiocesan Museum of Cebu through a series of interior and architectural photographs that highlight its preserved heritage features. The images showcase the warm tones of the museum’s wooden floors, beams, and antique staircase, emphasizing the structure’s traditional balay na bato elements and its blend of coral-stone and timber materials. Display galleries featuring religious artifacts, liturgical items, and archival collections are presented with clarity, illustrating the museum’s role in preserving Cebu’s ecclesiastical history. The varied angles—ranging from close-up details to wider interior views—convey the building’s spatial depth, cultural significance, and careful restoration, offering a cohesive visual narrative that reflects both its architectural authenticity and its function as a heritage museum.",
   },
   {
     id: 3,
-    title: "Eco Hub",
-    category: "Commercial",
-    location: "Seattle, USA",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
-    year: "2023",
-    area: "25,000 sqm",
-    status: "Under Construction",
-    description:
-      "The future of workspace, integrating vertical forests and sustainable energy systems into the urban fabric.",
+    title: "A Proposed Coffee Shop",
+    category: "Digital",
+    image: Images["./assets/a-proposed-coffee-shop.jpeg"],
+    thumbnail: "",
+    year: "2024",
+    status: "Completed",
     details:
-      "This project redefines the high-rise. Instead of a sealed glass box, we created a porous structure with breathing terraces on every third floor. The facade integrates algae-bio-reactive panels to generate energy.",
+      "This proposed 3×6-meter coffee shop near Cebu’s Tops is designed to create a warm, stylish retreat that blends rustic charm with modern sophistication. Featuring natural stone textures, wooden-like accents, and extensive tempered glass walls, the structure offers unobstructed scenic views while harmonizing with its surrounding environment. The building is supported by a reinforced concrete foundation with steel beams, wood framing, and gabion walls, complemented by a clay-tile roofing system. Exterior works include applying a warm #E2D7A7 paint finish, sealing glass panels, and completing the clay-tile roof, while the interior features matte porcelain wood-look flooring, terrazzo wall tiles, and wood or laminate countertops. Site preparation consists of clearing, excavation, and grading to ensure a stable base for construction. Overall, the design aims to deliver a comfortable, contemporary, and nature-integrated coffee experience.",
   },
   {
     id: 4,
-    title: "Serenity Pavilion",
-    category: "Landscape",
-    location: "Kyoto, Japan",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kiyomizu.jpg/1280px-Kiyomizu.jpg",
-    year: "2021",
-    area: "120 sqm",
+    title: "Line Drawing",
+    category: "Manual",
+    image: Images["./assets/line-drawing.jpg"],
+    thumbnail: "",
+    year: "2024",
     status: "Completed",
-    description:
-      "Merging traditional tea house techniques with modern steel construction to create a weightless sanctuary.",
     details:
-      "Located in a private garden, the pavilion floats above a koi pond. We utilized 12mm thick steel plates for the roof, allowing for an impossibly thin edge profile that disappears against the tree canopy.",
+      "In this plate, we have the freedom to create any line drawing. I chose to illustrate a stylized chess knight, using intricate patterns and repetitive line work to give the subject depth, texture, and movement. The background and foreground are filled with different line-based motifs—such as waves, spirals, and geometric shapes—to create contrast and highlight the details of the central figure. This activity allowed me to explore how simple lines can form complex visual effects, teaching me patience, precision, and creativity in composing a unified artwork. Through this exercise, I learned how lines alone can communicate rhythm, form, and personality without relying on color or shading.",
   },
   {
     id: 5,
-    title: "Urban Loft 42",
-    category: "Interior",
-    location: "New York, USA",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1600",
-    year: "2022",
-    area: "300 sqm",
+    title: "Perspective Drawing: Architect's Method",
+    category: "Manual",
+    image: Images["./assets/perspective-drawing-architects-method.jpg"],
+    thumbnail: "",
+    year: "2025",
     status: "Completed",
-    description:
-      "Reimagining industrial heritage for modern living, preserving the raw history while adding warmth.",
     details:
-      "A complete gut-renovation of a 1920s textile factory. We preserved the original brick walls and timber beams, contrasting them with sharp, white monolithic volumes that house the kitchen and bathrooms.",
+      "This plate demonstrates the architect’s method in perspective drawing, where a two-point perspective is constructed using precise reference lines and vanishing points. The drawing begins with the establishment of the picture plane (PP), ground line (GL), and horizon line (HL), followed by locating the station point (SP) to determine the viewer’s position. From the SP, projectors extend toward the left and right vanishing points (VPL and VPR), guiding the accurate convergence of lines that form the structure. The mass of the house is built using measuring points and projection lines to ensure proportional scaling in depth, height, and width. Red outlines highlight the edges of the final form, while underlying construction lines show the systematic process of defining volumes in proper perspective. This method ensures that the architectural form appears visually realistic and correctly oriented within the viewer’s field of vision.",
   },
   {
     id: 6,
-    title: "Boarding House",
-    category: "Siomai-an",
-    location: "Tisa, Cebu, Philippines",
-    image:
-      "https://storage.googleapis.com/cebuinsights-assets/2024/08/28284462-tisa-1.jpg",
-    year: "2025",
-    area: "200 sqm",
+    title: "Elevation",
+    category: "Manual",
+    image: Images["./assets/elevation.jpg"],
+    thumbnail: "",
+    year: "2024",
     status: "Completed",
-    description:
-      "Reimagining industrial heritage for modern living, preserving the raw history while adding warmth of siomai.",
-    details: "ah basta siomai-an",
+    details: "No details provided...",
+  },
+  {
+    id: 7,
+    title: "Heart of Cebu",
+    category: "Manual",
+    image: Images["./assets/heart-of-cebu.jpg"],
+    thumbnail: "",
+    year: "2025",
+    status: "Completed",
+    details:
+      "In this plate, we were tasked to use alcohol markers as our medium. It was my first time using them, and I was having a hard time mastering the blending, layering, and control required to create smooth transitions. Despite the challenge, the process taught me how to work patiently with the medium and experiment with different techniques such as hatching and scribbling, which I incorporated into the overall rendering. The artwork features the Sugbo Chinese Heritage Museum, illustrated with expressive colors and bold strokes to highlight its architectural character. Through this plate, I learned not only how to handle alcohol markers but also how to translate architectural forms into a vibrant, dynamic visual representation.",
+  },
+  {
+    id: 8,
+    title: "Section",
+    category: "Manual",
+    image: Images["./assets/section.jpg"],
+    thumbnail: "",
+    year: "2024",
+    status: "Completed",
+    details: "No details provided...",
+  },
+  {
+    id: 9,
+    title: "Shadows of a Plain Form on a Vertical Wall",
+    category: "Manual",
+    image: Images["./assets/shadows-of-a-plain-form-on-a-vertical-wall.jpg"],
+    thumbnail: "",
+    year: "2025",
+    status: "Completed",
+    details:
+      "This plate demonstrates the projection of shadows cast by a plain form onto a vertical wall using precise construction lines and geometric analysis. The primary object, shown with curved and angular surfaces, is illuminated from an oblique light source, indicated by the diagonal light ray. Vertical and horizontal projection lines are used to track how the edges and curves of the form extend toward the wall, creating an accurate shadow outline. The resulting shadow is carefully constructed by transferring key points of the form onto the wall plane, ensuring correct alignment and proportion. Hatched areas highlight the shaded regions, while clear dimensional markings and guidelines maintain technical accuracy. The drawing shows how light interacts with basic forms and how shadows can be systematically projected onto vertical surfaces in architectural drafting.",
+  },
+  {
+    id: 10,
+    title: "9-Scale Tonal Values",
+    category: "Manual",
+    image: Images["./assets/tonal-values.jpg"],
+    thumbnail: "",
+    year: "2024",
+    status: "Completed",
+    details:
+      "This plate demonstrates a 9-scale tonal value using four different shading techniques: hatching, cross-hatching, scribbling, and stippling. Each technique transitions from light to dark by gradually increasing the density and layering of lines, marks, or dots. In the hatching scale, the values progress by adding more parallel lines and decreasing the spaces between them. The cross-hatching section builds tone through intersecting lines that become denser in each box, creating richer and darker values. The scribbling scale uses overlapping loops and irregular strokes that grow tighter and heavier to achieve deeper shades. Lastly, the stippling scale shifts from light to dark through the controlled placement of dots—starting with sparse points and becoming densely packed in the darkest values. These four techniques show how varying mark density and repetition can create a complete tonal range from very light to solid dark.",
+  },
+  {
+    id: 11,
+    title: "WT Corporate Tower",
+    category: "Photography",
+    image: Images["./assets/wt-corporate-tower.jpeg"],
+    thumbnail: Images["./assets/wt-corporate-tower-thumbnail.jpg"],
+    year: "2025",
+    status: "Completed",
+    details:
+      "This photography presents the WT Corporate Tower through a series of well-composed architectural photographs that highlight the building’s distinct modern character. The images emphasize its sleek blue-tinted glazing, strong geometric structural frames, and curved façade elements that define its visual identity. Close-up shots capture the tower’s reflective glass surfaces and vertical lines, while wider perspectives showcase its scale, massing, and integration within the urban setting. An upward interior view adds depth by revealing the building’s circular structural rhythm and layered forms. Together, the photographs create a cohesive visual narrative that illustrates the tower’s contemporary design, material palette, and prominent presence within Cebu Business Park.",
   },
 ];
 
@@ -120,6 +155,18 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Add this useEffect to disable scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -222,8 +269,8 @@ const Hero = () => {
 
       <div className="relative z-10 flex justify-between items-end border-t border-white/10 pt-8">
         <p className="max-w-md text-sm text-neutral-400 leading-relaxed hidden md:block">
-          I am an avant-garde architect based in Mandaue and Cebu, dedicated to
-          challenging the boundaries of physical space.
+          I am an aspiring architect. I believe architecture is not about
+          filling space, but creating it.
         </p>
         <framerMotion.motion.div
           animate={{ y: [0, 10, 0] }}
@@ -250,16 +297,14 @@ const CaseStudyModal = ({ project, onClose }) => {
     >
       {/* Modal Header */}
       <div className="sticky top-0 w-full flex justify-between items-center p-8 bg-neutral-900/90 backdrop-blur-md z-50 border-b border-white/10">
-        <span className="text-white text-sm font-mono">
-          {project.title} — Case Study
-        </span>
+        <span className="text-white text-sm font-mono">{project.title}</span>
         <button
           onClick={onClose}
           className="text-white hover:text-neutral-400 transition-colors"
         >
-          <span className="sr-only">Close</span>
+          <span className="sr-only">Back</span>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
-            Close <X size={20} />
+            Back <X size={20} />
           </div>
         </button>
       </div>
@@ -268,7 +313,7 @@ const CaseStudyModal = ({ project, onClose }) => {
       <div className="flex-1 w-full max-w-7xl mx-auto p-8 md:p-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
           {/* Main Image */}
-          <div className="md:col-span-12 h-[60vh] bg-neutral-800 rounded-lg overflow-hidden mb-8">
+          <div className="md:col-span-12 bg-neutral-800 rounded-lg overflow-hidden mb-8">
             <img
               src={project.image}
               alt={project.title}
@@ -278,23 +323,12 @@ const CaseStudyModal = ({ project, onClose }) => {
 
           {/* Project Stats */}
           <div className="md:col-span-4 space-y-8 border-t border-white/20 pt-8">
-            <div>
-              <h4 className="text-xs text-neutral-500 uppercase tracking-widest mb-2">
-                Location
-              </h4>
-              <p className="text-white text-lg">{project.location}</p>
-            </div>
+            {/* Location and Area removed as requested */}
             <div>
               <h4 className="text-xs text-neutral-500 uppercase tracking-widest mb-2">
                 Year
               </h4>
               <p className="text-white text-lg">{project.year}</p>
-            </div>
-            <div>
-              <h4 className="text-xs text-neutral-500 uppercase tracking-widest mb-2">
-                Area
-              </h4>
-              <p className="text-white text-lg">{project.area}</p>
             </div>
             <div>
               <h4 className="text-xs text-neutral-500 uppercase tracking-widest mb-2">
@@ -306,41 +340,10 @@ const CaseStudyModal = ({ project, onClose }) => {
 
           {/* Detailed Description */}
           <div className="md:col-span-8 border-t border-white/20 pt-8">
-            <h2 className="text-4xl font-bold text-white mb-8">
-              Architectural Narrative
-            </h2>
+            <h2 className="text-4xl font-bold text-white mb-8">Description</h2>
             <p className="text-neutral-300 text-lg leading-relaxed mb-8">
               {project.details}
             </p>
-            <p className="text-neutral-300 text-lg leading-relaxed">
-              The project represents a pivotal moment in our exploration of
-              material honesty. By exposing the structural elements, we allow
-              the building to tell its own story of construction and permanence.
-            </p>
-          </div>
-        </div>
-
-        {/* Image Grid (Placeholders for Gallery) */}
-        <div className="mb-24">
-          <h3 className="text-2xl text-white font-bold mb-8">
-            Visual Documentation
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="aspect-square bg-neutral-800 flex items-center justify-center text-neutral-600">
-              <span className="text-xs uppercase tracking-widest">
-                [ Interior Detail 01 ]
-              </span>
-            </div>
-            <div className="aspect-square bg-neutral-800 flex items-center justify-center text-neutral-600">
-              <span className="text-xs uppercase tracking-widest">
-                [ Site Plan ]
-              </span>
-            </div>
-            <div className="aspect-video md:col-span-2 bg-neutral-800 flex items-center justify-center text-neutral-600">
-              <span className="text-xs uppercase tracking-widest">
-                [ Elevation Drawing ]
-              </span>
-            </div>
           </div>
         </div>
       </div>
@@ -348,8 +351,8 @@ const CaseStudyModal = ({ project, onClose }) => {
   );
 };
 
-// --- ARCHIVE MODAL ---
-const ArchiveModal = ({ isOpen, onClose, projects }) => {
+// --- ARCHIVE MODAL (Updated) ---
+const ArchiveModal = ({ isOpen, onClose, projects, onOpenModal }) => {
   if (!isOpen) return null;
 
   return (
@@ -375,8 +378,9 @@ const ArchiveModal = ({ isOpen, onClose, projects }) => {
           {/* Table Header */}
           <div className="grid grid-cols-12 gap-4 pb-4 border-b border-white/20 text-xs font-bold uppercase tracking-widest text-neutral-500 mb-4 md:grid">
             <div className="col-span-1">Year</div>
-            <div className="col-span-4">Project</div>
-            <div className="col-span-3">Location</div>
+            <div className="col-span-7">Project</div>{" "}
+            {/* Expanded to fill space */}
+            {/* Location column removed */}
             <div className="col-span-2">Category</div>
             <div className="col-span-2 text-right">Status</div>
           </div>
@@ -386,17 +390,19 @@ const ArchiveModal = ({ isOpen, onClose, projects }) => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-4 border-b border-white/5 hover:bg-white/5 transition-colors items-center group cursor-default"
+                onClick={() => {
+                  onClose();
+                  onOpenModal(project);
+                }}
+                className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-4 border-b border-white/5 hover:bg-white/5 transition-colors items-center group cursor-pointer"
               >
                 <div className="col-span-1 font-mono text-sm text-neutral-400">
                   {project.year}
                 </div>
-                <div className="col-span-4 text-xl font-bold">
+                <div className="col-span-7 text-xl font-bold">
                   {project.title}
                 </div>
-                <div className="col-span-3 text-neutral-300 hidden md:block">
-                  {project.location}
-                </div>
+                {/* Location column removed */}
                 <div className="col-span-2 text-xs uppercase tracking-widest bg-white/10 w-fit px-2 py-1 rounded hidden md:block">
                   {project.category}
                 </div>
@@ -405,16 +411,6 @@ const ArchiveModal = ({ isOpen, onClose, projects }) => {
                 </div>
               </div>
             ))}
-            {/* Simulated Archive Entries */}
-            {/* {projects.map((project) => (
-                    <div key={`dup-${project.id}`} className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-4 border-b border-white/5 hover:bg-white/5 transition-colors items-center group cursor-default opacity-50">
-                        <div className="col-span-1 font-mono text-sm text-neutral-400">{parseInt(project.year) - 2}</div>
-                        <div className="col-span-4 text-xl font-bold">{project.title} II (Concept)</div>
-                        <div className="col-span-3 text-neutral-300 hidden md:block">{project.location}</div>
-                        <div className="col-span-2 text-xs uppercase tracking-widest bg-white/10 w-fit px-2 py-1 rounded hidden md:block">{project.category}</div>
-                        <div className="col-span-2 text-right text-sm text-neutral-400 hidden md:block">Unbuilt</div>
-                    </div>
-                ))} */}
           </div>
         </div>
       </div>
@@ -456,14 +452,14 @@ const ProjectItem = ({ project, setActiveProject, onOpenModal }) => {
           <span className="w-1 h-1 bg-neutral-600 rounded-full" />
           <span>{project.year}</span>
         </div>
-        <p className="text-neutral-400 leading-relaxed max-w-md mb-8">
+        {/* <p className="text-neutral-400 leading-relaxed max-w-md mb-8">
           {project.description}
-        </p>
+        </p> */}
         <button
           onClick={() => onOpenModal(project)}
           className="flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity translate-x-0 group-hover:translate-x-2 duration-300"
         >
-          View Case Study <ArrowRight size={14} />
+          View Details <ArrowRight size={14} />
         </button>
       </div>
     </div>
@@ -486,7 +482,7 @@ const ProjectsGallery = ({ onOpenModal, onOpenArchive }) => {
         </div>
         <div className="mt-8 md:mt-0 text-right">
           <p className="text-white text-lg font-light">Index of Projects</p>
-          <p className="text-neutral-500 text-sm">2021 — 2023</p>
+          <p className="text-neutral-500 text-sm">2024 — 2025</p>
         </div>
       </div>
 
@@ -507,7 +503,7 @@ const ProjectsGallery = ({ onOpenModal, onOpenArchive }) => {
                       className="absolute inset-0 w-full h-full"
                     >
                       <img
-                        src={project.image}
+                        src={project.thumbnail || project.image}
                         alt={project.title}
                         className="w-full h-full object-cover"
                       />
@@ -517,11 +513,11 @@ const ProjectsGallery = ({ onOpenModal, onOpenArchive }) => {
               )}
             </framerMotion.AnimatePresence>
 
-            {/* Overlay Info on Image */}
+            {/* Overlay Info on Image - Location Removed */}
             <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
-              <p className="text-white text-xl font-light italic">
+              {/* <p className="text-white text-xl font-light italic">
                 "{projects.find((p) => p.id === activeProject)?.location}"
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -544,7 +540,7 @@ const ProjectsGallery = ({ onOpenModal, onOpenArchive }) => {
           onClick={onOpenArchive}
           className="border border-white/20 text-white px-12 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all"
         >
-          View Entire Archive
+          View Entire Projects
         </button>
       </div>
     </section>
@@ -733,13 +729,49 @@ const Contact = () => {
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
+  // Track where the project was opened from ('gallery' or 'archive')
+  const [sourceView, setSourceView] = useState(null);
+
+  // Disable body scroll when a modal is open
+  useEffect(() => {
+    if (selectedProject || isArchiveOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedProject, isArchiveOpen]);
+
+  // Handler for opening from Gallery (Home)
+  const handleOpenFromGallery = (project) => {
+    setSelectedProject(project);
+    setSourceView("gallery");
+  };
+
+  // Handler for opening from Archive
+  const handleOpenFromArchive = (project) => {
+    setSelectedProject(project);
+    setSourceView("archive");
+  };
+
+  // Handler for closing the project modal
+  const handleCloseProject = () => {
+    setSelectedProject(null);
+    // If it was opened from the archive, reopen the archive
+    if (sourceView === "archive") {
+      setIsArchiveOpen(true);
+    }
+  };
 
   return (
     <div className="font-sans antialiased selection:bg-white selection:text-black bg-neutral-900">
       <Navbar />
       <Hero />
       <ProjectsGallery
-        onOpenModal={setSelectedProject}
+        onOpenModal={handleOpenFromGallery}
         onOpenArchive={() => setIsArchiveOpen(true)}
       />
       <About />
@@ -749,7 +781,7 @@ export default function App() {
         {selectedProject && (
           <CaseStudyModal
             project={selectedProject}
-            onClose={() => setSelectedProject(null)}
+            onClose={handleCloseProject}
           />
         )}
       </framerMotion.AnimatePresence>
@@ -760,6 +792,7 @@ export default function App() {
             isOpen={isArchiveOpen}
             onClose={() => setIsArchiveOpen(false)}
             projects={projects}
+            onOpenModal={handleOpenFromArchive}
           />
         )}
       </framerMotion.AnimatePresence>
